@@ -34,9 +34,9 @@ IMPORTANT: Entire response must be in the language with ISO code: ${options.lang
 `
 
       this.api = new ChatGPTAPI({
-        apiBaseUrl: process.env.BASE_API_URL || options.apiBaseUrl,
+        apiBaseUrl: process.env.AZURE_OPENAI_API_BASE || options.apiBaseUrl,
         systemMessage,
-        apiKey: process.env.OPENAI_API_KEY,
+        apiKey: process.env.AZURE_OPENAI_API_KEY,
         apiOrg: process.env.OPENAI_API_ORG ?? undefined,
         debug: options.debug,
         maxModelTokens: openaiOptions.tokenLimits.maxTokens,
