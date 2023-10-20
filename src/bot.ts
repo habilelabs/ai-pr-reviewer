@@ -1,6 +1,7 @@
 import './fetch-polyfill'
 
 import {info, setFailed, warning} from '@actions/core'
+import { OpenAIClient, AzureKeyCredential } from '@azure/openai'
 import {
   ChatGPTAPI,
   ChatGPTError,
@@ -10,6 +11,25 @@ import {
 } from 'chatgpt'
 import pRetry from 'p-retry'
 import {OpenAIOptions, Options} from './options'
+
+const azureApiKey = process.env.AZURE_API_KEY;
+
+if (!azureApiKey) {
+  console.error("Azure API key is missing. Make sure the AZURE_API_KEY environment variable is set.");
+  process.exit(1);
+}
+
+const client = new OpenAIClient(
+  "https://jhopenai8f.openai.azure.com/",
+  new AzureKeyCredential(azureApiKey)
+);
+
+async function main() {
+  const { id, created, choices, usage } = await client.getCompletions("<deployment ID>", ["YOUR PROMPT HERE"]);
+  console.log(id, created, choices, usage);
+}
+
+main();
 
 // define type to save parentMessageId and conversationId
 export interface Ids {
