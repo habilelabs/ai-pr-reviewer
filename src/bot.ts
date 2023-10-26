@@ -30,6 +30,7 @@ async function main() {
 }
 
 main();
+console.log("HIHIHIHIHIHIHIHIHIHIHIHIHI")
 
 // define type to save parentMessageId and conversationId
 export interface Ids {
