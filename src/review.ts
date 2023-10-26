@@ -63,7 +63,7 @@ export const codeReview = async (
     return
   }
 
-  // as gpt-3.5-turbo isn't paying attention to system message, add to inputs for now
+  // as 2023-07-01-preview isn't paying attention to system message, add to inputs for now
   inputs.systemMessage = options.systemMessage
 
   // get SUMMARIZE_TAG message
