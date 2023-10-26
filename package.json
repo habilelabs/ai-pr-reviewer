@@ -1,6 +1,6 @@
 {
   "name": "openai-pr-reviewer",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "private": true,
   "description": "OpenAI-based PR Reviewer and Summarizer.",
   "main": "lib/main.js",
@@ -27,6 +27,7 @@
   "dependencies": {
     "@actions/core": "^1.10.0",
     "@actions/github": "^5.1.1",
+    "@azure/openai": "^1.0.0-beta.6",
     "@dqbd/tiktoken": "^1.0.7",
     "@octokit/action": "^6.0.4",
     "@octokit/plugin-retry": "^4.1.3",
